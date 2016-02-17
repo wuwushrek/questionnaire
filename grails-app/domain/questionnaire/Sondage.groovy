@@ -2,10 +2,10 @@ package questionnaire
 
 class Sondage {
 	String nom;
-
 	Date debut=new Date()
 	Date fin=new Date()
 	static hasMany=[note:Note]
+	
 	static constraints = {
 		debut(blank : false)
 		fin(blank : false,min: new Date())
