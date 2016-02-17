@@ -30,9 +30,9 @@
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "mdp")}</g:link></td>
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
 					
-						<td>${fieldValue(bean: sondageInstance, field: "nom")}</td>
+						<td>${fieldValue(bean: sondageInstance, field: "moy")}</td>
 					
 					</tr>
 				</g:each>

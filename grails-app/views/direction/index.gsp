@@ -36,7 +36,7 @@
 					
 						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
 					
-						<td>${fieldValue(bean: sondageInstance, field: "mdp")}</td>
+						<td>${fieldValue(bean: sondageInstance, field: "moy")}</td>
 					
 					</tr>
 				</g:each>
