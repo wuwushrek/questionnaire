@@ -12,7 +12,7 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="créer sondage" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-direction" class="content scaffold-list" role="main">
@@ -24,26 +24,26 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="nom" title="${message(code: 'direction.nom.label', default: 'Nom')}" />
+						<g:sortableColumn property="nom" title="${message(code: 'direction.nom.label', default: 'Sondage')}" />
 					
-						<g:sortableColumn property="mdp" title="${message(code: 'direction.mdp.label', default: 'Mdp')}" />
+						<g:sortableColumn property="mdp" title="${message(code: 'direction.mdp.label', default: 'Moyenne')}" />
 					
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${directionInstanceList}" status="i" var="directionInstance">
+				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${directionInstance.id}">${fieldValue(bean: directionInstance, field: "nom")}</g:link></td>
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
 					
-						<td>${fieldValue(bean: directionInstance, field: "mdp")}</td>
+						<td>${fieldValue(bean: sondageInstance, field: "mdp")}</td>
 					
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${directionInstanceCount ?: 0}" />
+				<g:paginate total="${sondageInstanceCount ?: 0}" />
 			</div>
 		</div>
 	</body>
