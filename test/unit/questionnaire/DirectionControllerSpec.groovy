@@ -5,9 +5,9 @@ package questionnaire
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(NoteController)
-@Mock(Note)
-class NoteControllerSpec extends Specification {
+@TestFor(DirectionController)
+@Mock(Direction)
+class DirectionControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class NoteControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.noteInstanceList
-            model.noteInstanceCount == 0
+            !model.directionInstanceList
+            model.directionInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,7 +30,7 @@ class NoteControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.noteInstance!= null
+            model.directionInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -38,25 +38,25 @@ class NoteControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def note = new Note()
-            note.validate()
-            controller.save(note)
+            def direction = new Direction()
+            direction.validate()
+            controller.save(direction)
 
         then:"The create view is rendered again with the correct model"
-            model.noteInstance!= null
+            model.directionInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            note = new Note(params)
+            direction = new Direction(params)
 
-            controller.save(note)
+            controller.save(direction)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/note/show/1'
+            response.redirectedUrl == '/direction/show/1'
             controller.flash.message != null
-            Note.count() == 1
+            Direction.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,11 +68,11 @@ class NoteControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def note = new Note(params)
-            controller.show(note)
+            def direction = new Direction(params)
+            controller.show(direction)
 
         then:"A model is populated containing the domain instance"
-            model.noteInstance == note
+            model.directionInstance == direction
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -84,11 +84,11 @@ class NoteControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def note = new Note(params)
-            controller.edit(note)
+            def direction = new Direction(params)
+            controller.edit(direction)
 
         then:"A model is populated containing the domain instance"
-            model.noteInstance == note
+            model.directionInstance == direction
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -98,28 +98,28 @@ class NoteControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/note/index'
+            response.redirectedUrl == '/direction/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def note = new Note()
-            note.validate()
-            controller.update(note)
+            def direction = new Direction()
+            direction.validate()
+            controller.update(direction)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.noteInstance == note
+            model.directionInstance == direction
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            note = new Note(params).save(flush: true)
-            controller.update(note)
+            direction = new Direction(params).save(flush: true)
+            controller.update(direction)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/note/show/$note.id"
+            response.redirectedUrl == "/direction/show/$direction.id"
             flash.message != null
     }
 
@@ -130,23 +130,23 @@ class NoteControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/note/index'
+            response.redirectedUrl == '/direction/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def note = new Note(params).save(flush: true)
+            def direction = new Direction(params).save(flush: true)
 
         then:"It exists"
-            Note.count() == 1
+            Direction.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(note)
+            controller.delete(direction)
 
         then:"The instance is deleted"
-            Note.count() == 0
-            response.redirectedUrl == '/note/index'
+            Direction.count() == 0
+            response.redirectedUrl == '/direction/index'
             flash.message != null
     }
 }
