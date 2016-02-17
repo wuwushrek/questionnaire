@@ -22,18 +22,43 @@
 			<table>
 			<thead>
 					<tr>
-					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage')}" />
-					<g:sortableColumn property="mdp" title="${message(code: 'eleve.mdp.label', default: 'Note')}" />
+					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage en cours')}" />
+					<g:sortableColumn property="date" title="${message(code: 'Eleve.nom.label', default: 'Date de fin')}" />
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
 						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
-					
-						<td>${fieldValue(bean: sondageInstance, field: "moy")}</td>
-					
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "fin")}</g:link></td>
+					</tr>
+				</g:each>
+				</tbody>
+				<thead>
+					<tr>
+					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
+					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de début')}" />
+					</tr>
+				</thead>
+				<tbody>
+				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "debut")}</g:link></td>
+					</tr>
+				</g:each>
+				</tbody>
+				<thead>
+					<tr>
+					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
+					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
+					</tr>
+				</thead>
+				<tbody>
+				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "fin")}</g:link></td>
 					</tr>
 				</g:each>
 				</tbody>

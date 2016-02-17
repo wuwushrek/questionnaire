@@ -24,10 +24,42 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="nom" title="${message(code: 'direction.nom.label', default: 'Sondage')}" />
+						<g:sortableColumn property="nom" title="${message(code: 'direction.nom.label', default: 'Sondage en cours')}" />
 					
 						<g:sortableColumn property="mdp" title="${message(code: 'direction.mdp.label', default: 'Moyenne')}" />
 					
+					</tr>
+				</thead>
+				<tbody>
+				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+					
+						<td>${fieldValue(bean: sondageInstance, field: "moy")}</td>
+					
+					</tr>
+				</g:each>
+				</tbody>
+				<thead>
+					<tr>
+					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
+					</tr>
+				</thead>
+				<tbody>
+				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+					
+					
+					</tr>
+				</g:each>
+				</tbody>
+				<thead>
+					<tr>
+					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
+					<g:sortableColumn property="mdp" title="${message(code: 'eleve.mdp.label', default: 'Moyenne')}" />
 					</tr>
 				</thead>
 				<tbody>
