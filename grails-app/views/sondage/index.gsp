@@ -23,12 +23,12 @@
 			<table>
 			<thead>
 					<tr>
-					
+						<g:sortableColumn property="nom" title="${message(code: 'sondage.nom.label', default: 'Nom')}" />
 						<g:sortableColumn property="debut" title="${message(code: 'sondage.debut.label', default: 'Debut')}" />
 					
 						<g:sortableColumn property="fin" title="${message(code: 'sondage.fin.label', default: 'Fin')}" />
 					
-						<g:sortableColumn property="nom" title="${message(code: 'sondage.nom.label', default: 'Nom')}" />
+						
 					
 					</tr>
 				</thead>

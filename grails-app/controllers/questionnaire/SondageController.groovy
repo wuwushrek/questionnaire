@@ -14,6 +14,8 @@ class SondageController {
         params.max = Math.min(max ?: 10, 100)
         respond Sondage.list(params), model:[sondageInstanceCount: Sondage.count()]
     }
+	
+	
 
     def show(Sondage sondageInstance) {
         respond sondageInstance

@@ -11,7 +11,7 @@ class LoggingController {
 		def eleve = Eleve.findByNomAndMdp(params.login,params.mdp)
 		if(eleve){
 			session.eleve=eleve
-			flash.message= "Login: ${eleve.nom}"
+			flash.message= "Login: ${eleve.nom}"                                                    
 			redirect(controller:"eleve" , action:"index")
 		}
 		else {

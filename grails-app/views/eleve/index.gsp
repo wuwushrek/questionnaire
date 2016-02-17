@@ -23,11 +23,8 @@
 			<table>
 			<thead>
 					<tr>
-					
-						<g:sortableColumn property="mdp" title="${message(code: 'eleve.mdp.label', default: 'Mdp')}" />
-					
-						<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Nom')}" />
-					
+					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage')}" />
+					<g:sortableColumn property="mdp" title="${message(code: 'eleve.mdp.label', default: 'Note')}" />
 					</tr>
 				</thead>
 				<tbody>
