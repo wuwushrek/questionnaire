@@ -23,11 +23,11 @@ class SondageController {
 
 				sondageAVenir.add(Sondage.list().get(i));
 			}
-			else if(){
+			/*else if(){
 
 			}else{//A COMPLETER
 			
-			}
+			}*/
 
 
 		}
