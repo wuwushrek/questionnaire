@@ -9,16 +9,13 @@ class EleveController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Eleve.list(params), model:[eleveInstanceCount: Eleve.count()]
+        respond Sondage.list(params),model:[sondageInstanceCount: Sondage.count()]
     }
 
     def show(Eleve eleveInstance) {
         respond eleveInstance
     }	
 
-    def create() {
-        respond new Eleve(params)
-    }
 
     @Transactional
     def save(Eleve eleveInstance) {
@@ -70,7 +67,7 @@ class EleveController {
         }
     }
 
-    @Transactional
+    /*@Transactional
     def delete(Eleve eleveInstance) {
 
         if (eleveInstance == null) {
@@ -87,7 +84,7 @@ class EleveController {
             }
             '*'{ render status: NO_CONTENT }
         }
-    }
+    }*/
 
     protected void notFound() {
         request.withFormat {

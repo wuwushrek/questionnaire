@@ -10,7 +10,7 @@ class DirectionController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Direction.list(params), model:[directionInstanceCount: Direction.count()]
+        return Sondage.list(params) //, model:[directionInstanceCount: Direction.count()]
     }
 
     def show(Direction directionInstance) {
@@ -18,7 +18,7 @@ class DirectionController {
     }
 
     def create() {
-        respond new Direction(params)
+        respond new Sondage(params)
     }
 
     @Transactional

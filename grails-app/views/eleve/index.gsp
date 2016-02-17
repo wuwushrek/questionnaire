@@ -31,19 +31,19 @@
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${eleveInstanceList}" status="i" var="eleveInstance">
+				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${eleveInstance.id}">${fieldValue(bean: eleveInstance, field: "mdp")}</g:link></td>
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "mdp")}</g:link></td>
 					
-						<td>${fieldValue(bean: eleveInstance, field: "nom")}</td>
+						<td>${fieldValue(bean: sondageInstance, field: "nom")}</td>
 					
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${eleveInstanceCount ?: 0}" />
+				<g:paginate total="${InstanceCount ?: 0}" />
 			</div>
 		</div>
 	</body>
