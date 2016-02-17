@@ -8,99 +8,116 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class SondageController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	static hasMany = [sondageAVenir:Sondage,sondageEnCours:Sondage,sondageTermine:Sondage]//???????????????
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Sondage.list(params), model:[sondageInstanceCount: Sondage.count()]
-    }
-	
-	
+	def index(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		respond Sondage.list(params), model:[sondageInstanceCount: Sondage.count()]
+	}
 
-    def show(Sondage sondageInstance) {
-        respond sondageInstance
-    }
+	def tri(){
+		Date current = new Date();
+		for(int i=0;i<Sondage.list().size;i++){
+			if(current<Sondage.list().get(i).debut){
 
-    def create() {
-        respond new Sondage(params)
-    }
+				sondageAVenir.add(Sondage.list().get(i));
+			}
+			else if(){
 
-    @Transactional
-    def save(Sondage sondageInstance) {
-        if (sondageInstance == null) {
-            notFound()
-            return
-        }
+			}else{//A COMPLETER
+			
+			}
 
-        if (sondageInstance.hasErrors()) {
-            respond sondageInstance.errors, view:'create'
-            return
-        }
 
-        sondageInstance.save flush:true
+		}
+	}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'sondage.label', default: 'Sondage'), sondageInstance.id])
-                redirect sondageInstance
-            }
-            '*' { respond sondageInstance, [status: CREATED] }
-        }
-    }
 
-    def edit(Sondage sondageInstance) {
-        respond sondageInstance
-    }
+	def show(Sondage sondageInstance) {
+		respond sondageInstance
+	}
 
-    @Transactional
-    def update(Sondage sondageInstance) {
-        if (sondageInstance == null) {
-            notFound()
-            return
-        }
+	def create() {
+		respond new Sondage(params)
+	}
 
-        if (sondageInstance.hasErrors()) {
-            respond sondageInstance.errors, view:'edit'
-            return
-        }
+	@Transactional
+	def save(Sondage sondageInstance) {
+		if (sondageInstance == null) {
+			notFound()
+			return
+		}
 
-        sondageInstance.save flush:true
+		if (sondageInstance.hasErrors()) {
+			respond sondageInstance.errors, view:'create'
+			return
+		}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Sondage.label', default: 'Sondage'), sondageInstance.id])
-                redirect sondageInstance
-            }
-            '*'{ respond sondageInstance, [status: OK] }
-        }
-    }
+		sondageInstance.save flush:true
 
-    @Transactional
-    def delete(Sondage sondageInstance) {
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.created.message', args: [message(code: 'sondage.label', default: 'Sondage'), sondageInstance.id])
+				redirect sondageInstance
+			}
+			'*' { respond sondageInstance, [status: CREATED] }
+		}
+	}
 
-        if (sondageInstance == null) {
-            notFound()
-            return
-        }
+	def edit(Sondage sondageInstance) {
+		respond sondageInstance
+	}
 
-        sondageInstance.delete flush:true
+	@Transactional
+	def update(Sondage sondageInstance) {
+		if (sondageInstance == null) {
+			notFound()
+			return
+		}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Sondage.label', default: 'Sondage'), sondageInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
+		if (sondageInstance.hasErrors()) {
+			respond sondageInstance.errors, view:'edit'
+			return
+		}
 
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'sondage.label', default: 'Sondage'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
+		sondageInstance.save flush:true
+
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.updated.message', args: [message(code: 'Sondage.label', default: 'Sondage'), sondageInstance.id])
+				redirect sondageInstance
+			}
+			'*'{ respond sondageInstance, [status: OK] }
+		}
+	}
+
+	@Transactional
+	def delete(Sondage sondageInstance) {
+
+		if (sondageInstance == null) {
+			notFound()
+			return
+		}
+
+		sondageInstance.delete flush:true
+
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.deleted.message', args: [message(code: 'Sondage.label', default: 'Sondage'), sondageInstance.id])
+				redirect action:"index", method:"GET"
+			}
+			'*'{ render status: NO_CONTENT }
+		}
+	}
+
+	protected void notFound() {
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.not.found.message', args: [message(code: 'sondage.label', default: 'Sondage'), params.id])
+				redirect action: "index", method: "GET"
+			}
+			'*'{ render status: NOT_FOUND }
+		}
+	}
 }
