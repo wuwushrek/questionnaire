@@ -29,21 +29,4 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: sondageInstance, field: 'note', 'error')} ">
-	<label for="note">
-		<g:message code="sondage.note.label" default="Note" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${sondageInstance?.note?}" var="n">
-    <li><g:link controller="note" action="show" id="${n.id}">${n?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="note" action="create" params="['sondage.id': sondageInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'note.label', default: 'Note')])}</g:link>
-</li>
-</ul>
-
-
-</div>
 
