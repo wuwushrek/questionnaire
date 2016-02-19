@@ -8,97 +8,93 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class NoteController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Note.list(params), model:[noteInstanceCount: Note.count()]
-    }
+	/* def index(Integer max) {
+	 params.max = Math.min(max ?: 10, 100)
+	 respond Note.list(params), model:[noteInstanceCount: Note.count()]
+	 }*/
+	def showQuestionnaire() {
+		if(session.user==null){
+			redirect(controller:"logging", action:"login")
+			return
+		}
+		String nomQuestionnaire=params.id;
+		Sondage sond = Sondage.findByNom(nomQuestionnaire)
+		if(sond==null){
+			flash.message="Sondage ${params.id} a expire ou est inexistant !veuillez choisir un sondage en cours"
+			redirect (controller:"eleve", action:"index")
+			return
+		}
+		//println("Nom questionnaire "+nomQuestionnaire + "   "+((session.user).note==null))
+		Note noteSondage=Note.findBySondageAndEleve(sond,session.user)
+		//Note noteSondage = ((session.user).note).find {(it.sondage).nom==nomQuestionnaire}
+		if(noteSondage==null){
+			return params
+		}else{
+			redirect(action:"showNote",params:[id:nomQuestionnaire])
+		}
+	}
 
-    def show(Note noteInstance) {
-        respond noteInstance
-    }
+	def showNote(){
+		if(session.user==null){
+			redirect(controller:"logging", action:"login")
+			return
+		}
+		Note note = Note.findBySondageAndEleve(Sondage.findByNom(params.id),session.user)
+		if(note==null){
+			flash.message="Sondage ${params.id} a expire ou est inexistant !veuillez choisir un sondage en cours"
+			redirect (controller:"eleve", action:"index")
+			return
+		}
+		return [sondage:params.id,note:note.note]
+	}
 
-    def create() {
-        respond new Note(params)
-    }
+	def valider(){
+		if(session.user==null){
+			redirect(controller:"logging", action:"login")
+			return
+		}
+		String nomQuestionnaire = params.id;
+		Sondage sond= Sondage.findByNom(nomQuestionnaire)
+		if(sond==null){
+			flash.message="Sondage ${params.id} a expire ou est inexistant !veuillez choisir un sondage en cours"
+			redirect (controller:"eleve", action:"index")
+			return
+		}
+		Note note = Note.findBySondageAndEleve(sond,session.user)
+		if (note!=null){
+			redirect(action:"showNote",params:[id:nomQuestionnaire])
+			return
+		}
+		Note maNote = new Note(note:params.note,sondage:sond,eleve:session.user);
+		maNote.save()
+		redirect (action:"showNote",params:[id:nomQuestionnaire])
+	}
 
-    @Transactional
-    def save(Note noteInstance) {
-        if (noteInstance == null) {
-            notFound()
-            return
-        }
+	def retour(){
+		redirect (controller:"eleve", action:"index")
+	}
 
-        if (noteInstance.hasErrors()) {
-            respond noteInstance.errors, view:'create'
-            return
-        }
+	@Transactional
+	def delete(Note noteInstance) {
 
-        noteInstance.save flush:true
+		if (noteInstance == null) {
+			notFound()
+			return
+		}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'note.label', default: 'Note'), noteInstance.id])
-                redirect noteInstance
-            }
-            '*' { respond noteInstance, [status: CREATED] }
-        }
-    }
+		noteInstance.delete flush:true
 
-    def edit(Note noteInstance) {
-        respond noteInstance
-    }
-
-    @Transactional
-    def update(Note noteInstance) {
-        if (noteInstance == null) {
-            notFound()
-            return
-        }
-
-        if (noteInstance.hasErrors()) {
-            respond noteInstance.errors, view:'edit'
-            return
-        }
-
-        noteInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Note.label', default: 'Note'), noteInstance.id])
-                redirect noteInstance
-            }
-            '*'{ respond noteInstance, [status: OK] }
-        }
-    }
-
-    @Transactional
-    def delete(Note noteInstance) {
-
-        if (noteInstance == null) {
-            notFound()
-            return
-        }
-
-        noteInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Note.label', default: 'Note'), noteInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'note.label', default: 'Note'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.deleted.message', args: [
+					message(code: 'Note.label', default: 'Note'),
+					noteInstance.id
+				])
+				redirect action:"index", method:"GET"
+			}
+			'*'{ render status: NO_CONTENT }
+		}
+	}
 }

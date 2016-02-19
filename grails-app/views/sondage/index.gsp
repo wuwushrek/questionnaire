@@ -23,12 +23,12 @@
 			<table>
 			<thead>
 					<tr>
+					
 						<g:sortableColumn property="nom" title="${message(code: 'sondage.nom.label', default: 'Nom')}" />
+					
 						<g:sortableColumn property="debut" title="${message(code: 'sondage.debut.label', default: 'Debut')}" />
 					
 						<g:sortableColumn property="fin" title="${message(code: 'sondage.fin.label', default: 'Fin')}" />
-					
-						
 					
 					</tr>
 				</thead>
@@ -36,11 +36,11 @@
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "debut")}</g:link></td>
+						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+					
+						<td><g:formatDate date="${sondageInstance.debut}" /></td>
 					
 						<td><g:formatDate date="${sondageInstance.fin}" /></td>
-					
-						<td>${fieldValue(bean: sondageInstance, field: "nom")}</td>
 					
 					</tr>
 				</g:each>

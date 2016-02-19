@@ -8,6 +8,10 @@ class EleveController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
+		if(session.user==null){
+			redirect(controller:"logging",action:"login")
+			return
+		}
         params.max = Math.min(max ?: 10, 100)
         respond Sondage.list(params),model:[sondageInstanceCount: Sondage.count()]
     }

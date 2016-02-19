@@ -2,12 +2,21 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: sondageInstance, field: 'nom', 'error')} required">
+	<label for="nom">
+		<g:message code="sondage.nom.label" default="Nom" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="nom" maxlength="30" required="" value="${sondageInstance?.nom}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: sondageInstance, field: 'debut', 'error')} required">
 	<label for="debut">
 		<g:message code="sondage.debut.label" default="Debut" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="debut" precision="day"  value="${sondageInstance?.debut}"  />
+	<g:datePicker name="debut" precision="minute"  value="${sondageInstance?.debut}"  />
 
 </div>
 
@@ -16,16 +25,7 @@
 		<g:message code="sondage.fin.label" default="Fin" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="fin" precision="day"  value="${sondageInstance?.fin}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: sondageInstance, field: 'nom', 'error')} required">
-	<label for="nom">
-		<g:message code="sondage.nom.label" default="Nom" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="nom" maxlength="30" required="" value="${sondageInstance?.nom}"/>
+	<g:datePicker name="fin" precision="minute"  value="${sondageInstance?.fin}"  />
 
 </div>
 

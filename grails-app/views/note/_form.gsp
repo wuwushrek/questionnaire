@@ -2,15 +2,6 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: noteInstance, field: 'nom', 'error')} required">
-	<label for="nom">
-		<g:message code="note.nom.label" default="Nom" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="nom" maxlength="30" required="" value="${noteInstance?.nom}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: noteInstance, field: 'note', 'error')} required">
 	<label for="note">
 		<g:message code="note.note.label" default="Note" />

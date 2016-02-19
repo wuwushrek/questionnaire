@@ -3,21 +3,21 @@ package questionnaire
 class LoggingController {
 
 	def index = { redirect(action: "login") }
-	def login = {
-	}
+	def login = {}
 	def logout={
+		session.user=null
+		redirect(action:"login")
 	}
 	def authentification ={
 		def eleve = Eleve.findByNomAndMdp(params.login,params.mdp)
 		if(eleve){
-			session.eleve=eleve
-			flash.message= "Login: ${eleve.nom}"                                                    
+			session.user=eleve                                           
 			redirect(controller:"eleve" , action:"index")
 		}
 		else {
 			eleve = Direction.findByNomAndMdp(params.login,params.mdp)
 			if(eleve){
-				session.eleve=eleve
+				session.user=eleve
 				flash.message= "Login: ${eleve.nom}"
 				redirect(controller:"direction" , action:"index")
 			}else{

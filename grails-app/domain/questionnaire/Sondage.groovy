@@ -1,15 +1,15 @@
 package questionnaire
 
 class Sondage {
-	String nom;
-	Date debut=new Date()
-	Date fin=new Date()
+	String nom
+	Date debut
+	Date fin
 	static hasMany=[note:Note]
 	
 	static constraints = {
-		debut(blank : false)
-		fin(blank : false,min: new Date())
-		nom(blank:false,size:3..30)
+		nom(blank:false,unique: true, size:3..30)
+		debut(validator: {return (it>=new Date())})
+		fin(min: new Date())
 	}
 	
 	double getMoy(){
@@ -22,7 +22,7 @@ class Sondage {
 	}
 	
 	String toString(){
-		//possibilite d'ajouter directement les dates de debut et de fin a�...
+		//possibilite d'ajouter directement les dates de debut et de fin
 		return nom;
 	}
 }

@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list sondage">
 			
+				<g:if test="${sondageInstance?.nom}">
+				<li class="fieldcontain">
+					<span id="nom-label" class="property-label"><g:message code="sondage.nom.label" default="Nom" /></span>
+					
+						<span class="property-value" aria-labelledby="nom-label"><g:fieldValue bean="${sondageInstance}" field="nom"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${sondageInstance?.debut}">
 				<li class="fieldcontain">
 					<span id="debut-label" class="property-label"><g:message code="sondage.debut.label" default="Debut" /></span>
@@ -37,15 +46,6 @@
 					<span id="fin-label" class="property-label"><g:message code="sondage.fin.label" default="Fin" /></span>
 					
 						<span class="property-value" aria-labelledby="fin-label"><g:formatDate date="${sondageInstance?.fin}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${sondageInstance?.nom}">
-				<li class="fieldcontain">
-					<span id="nom-label" class="property-label"><g:message code="sondage.nom.label" default="Nom" /></span>
-					
-						<span class="property-value" aria-labelledby="nom-label"><g:fieldValue bean="${sondageInstance}" field="nom"/></span>
 					
 				</li>
 				</g:if>

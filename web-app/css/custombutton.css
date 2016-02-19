@@ -1,0 +1,129 @@
+@CHARSET "ISO-8859-1";
+
+.validerbutton {
+	border: 1px solid #0a3c59;
+	background: #1f943b;
+	background: -webkit-gradient(linear, left top, left bottom, from(#5bb82c),
+		to(#1f943b));
+	background: -webkit-linear-gradient(top, #5bb82c, #1f943b);
+	background: -moz-linear-gradient(top, #5bb82c, #1f943b);
+	background: -ms-linear-gradient(top, #5bb82c, #1f943b);
+	background: -o-linear-gradient(top, #5bb82c, #1f943b);
+	background-image: -ms-linear-gradient(top, #5bb82c 0%, #1f943b 100%);
+	padding: 11.5px 23px;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	-webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset
+		rgba(255, 255, 255, 0.4) 0 1px 0;
+	-moz-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset
+		rgba(255, 255, 255, 0.4) 0 1px 0;
+	box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset
+		rgba(255, 255, 255, 0.4) 0 1px 0;
+	text-shadow: #7ea4bd 0 1px 0;
+	color: #edf2f5;
+	font-size: 19px;
+	font-family: helvetica, serif;
+	text-decoration: none;
+}
+
+.validerbutton:hover {
+	border: 1px solid #0a3c59;
+	text-shadow: #07161f 0 1px 0;
+	background: #2b8ccc;
+	background: -webkit-gradient(linear, left top, left bottom, from(#113e5c),
+		to(#2b8ccc));
+	background: -webkit-linear-gradient(top, #113e5c, #2b8ccc);
+	background: -moz-linear-gradient(top, #113e5c, #2b8ccc);
+	background: -ms-linear-gradient(top, #113e5c, #2b8ccc);
+	background: -o-linear-gradient(top, #113e5c, #2b8ccc);
+	background-image: -ms-linear-gradient(top, #113e5c 0%, #2b8ccc 100%);
+	color: #fff;
+}
+.validerbutton:active {
+	text-shadow: #1e4158 0 1px 0;
+	border: 1px solid #0a3c59;
+	background: #65a9d7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3e779d),
+		to(#2b8ccc));
+	background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+	background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+	background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+	background: -o-linear-gradient(top, #3e779d, #65a9d7);
+	background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+	color: #fff;
+}
+
+.retourbutton {
+	border: 1px solid #0a3c59;
+	background: #bd3918;
+	background: -webkit-gradient(linear, left top, left bottom, from(#e06e21),
+		to(#bd3918));
+	background: -webkit-linear-gradient(top, #e06e21, #bd3918);
+	background: -moz-linear-gradient(top, #e06e21, #bd3918);
+	background: -ms-linear-gradient(top, #e06e21, #bd3918);
+	background: -o-linear-gradient(top, #e06e21, #bd3918);
+	background-image: -ms-linear-gradient(top, #e06e21 0%, #bd3918 100%);
+	padding: 11.5px 23px;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	-webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset
+		rgba(255, 255, 255, 0.4) 0 1px 0;
+	-moz-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset
+		rgba(255, 255, 255, 0.4) 0 1px 0;
+	box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0, inset
+		rgba(255, 255, 255, 0.4) 0 1px 0;
+	text-shadow: #7ea4bd 0 1px 0;
+	color: #edf2f5;
+	font-size: 19px;
+	font-family: helvetica, serif;
+	text-decoration: none;
+}
+
+.retourbutton:hover {
+	border: 1px solid #0a3c59;
+	text-shadow: #07161f 0 1px 0;
+	background: #2b8ccc;
+	background: -webkit-gradient(linear, left top, left bottom, from(#113e5c),
+		to(#2b8ccc));
+	background: -webkit-linear-gradient(top, #113e5c, #2b8ccc);
+	background: -moz-linear-gradient(top, #113e5c, #2b8ccc);
+	background: -ms-linear-gradient(top, #113e5c, #2b8ccc);
+	background: -o-linear-gradient(top, #113e5c, #2b8ccc);
+	background-image: -ms-linear-gradient(top, #113e5c 0%, #2b8ccc 100%);
+	color: #fff;
+}
+
+.retourbutton:active {
+	text-shadow: #1e4158 0 1px 0;
+	border: 1px solid #0a3c59;
+	background: #65a9d7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3e779d),
+		to(#2b8ccc));
+	background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+	background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+	background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+	background: -o-linear-gradient(top, #3e779d, #65a9d7);
+	background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+	color: #fff;
+}
+.buttons{
+	border:0;
+	background-color : transparent;
+	width:200px;
+    margin:auto;
+    outline: 0;
+   -webkit-box-shadow: none;
+    box-shadow: none;
+    text-align:center;
+}
+.right_part{
+    width:49%;
+    float:left;
+}
+.left_part{
+    float:right;
+    width:49%;
+    display:inline-block;
+}
