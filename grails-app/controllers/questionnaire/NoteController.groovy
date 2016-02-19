@@ -27,8 +27,19 @@ class NoteController {
 			return
 		}
 		//println("Nom questionnaire "+nomQuestionnaire + "   "+((session.user).note==null))
+		
+		println("CONTROLLERRRRRRRRRRRR:    "+session.user.class.getName())
+		if(session.user.class.getName().equals("questionnaire.Direction"))
+		{
+			flash.message="Direction ${params.id} n'a pas accès à cette page"
+			redirect (controller:"direction", action:"index")
+			return
+		}
+		
 		Note noteSondage=Note.findBySondageAndEleve(sond,session.user)
 		//Note noteSondage = ((session.user).note).find {(it.sondage).nom==nomQuestionnaire}
+
+		
 		if(noteSondage==null){
 			return params
 		}else{
@@ -41,7 +52,16 @@ class NoteController {
 			redirect(controller:"logging", action:"login")
 			return
 		}
+		
+		
+		if(session.user.class.getName().equals("questionnaire.Direction"))
+		{
+			flash.message="Direction ${params.id} n'a pas accès à cette page"
+			redirect (controller:"direction", action:"index")
+			return
+		}
 		Note note = Note.findBySondageAndEleve(Sondage.findByNom(params.id),session.user)
+
 		if(note==null){
 			flash.message="Sondage ${params.id} a expire ou est inexistant !veuillez choisir un sondage en cours"
 			redirect (controller:"eleve", action:"index")

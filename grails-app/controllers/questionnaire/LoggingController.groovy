@@ -25,7 +25,7 @@ class LoggingController {
 			if(eleve){
 				session.user=eleve
 				flash.message= "Login: ${eleve.nom}"
-				redirect(controller:"direction" , action:"index")
+				redirect(controller:"direction" , action:"indexChoix")
 			}else{
 				flash.message= "Combinaison mot de passe ou Identifiant fausse. Recommencez !"
 				redirect(action:"login")

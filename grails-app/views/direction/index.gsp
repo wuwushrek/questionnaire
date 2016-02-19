@@ -23,22 +23,18 @@
 			<table>
 			<thead>
 					<tr>
-					
 						<g:sortableColumn property="nom" title="${message(code: 'direction.nom.label', default: 'Sondage en cours')}" />
-					
 						<g:sortableColumn property="mdp" title="${message(code: 'direction.mdp.label', default: 'Moyenne')}" />
-					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
+				<g:checkEncours sondage="${sondageInstance}">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
-					
-						<td>${fieldValue(bean: sondageInstance, field: "moy")}</td>
-					
+						<td> <g:link controller= "direction" action="showResults" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+						<td> <g:link controller= "direction" action="showResults" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "moy")}</g:link></td>
 					</tr>
+					</g:checkEncours>
 				</g:each>
 				</tbody>
 				<thead>
@@ -48,12 +44,12 @@
 				</thead>
 				<tbody>
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
+				<g:checkAVenir sondage="$sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
-					
-					
+						<td><g:link controller="sondage" action="edit" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+						<td><g:link controller="sondage" action="edit" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "moy")}</g:link></td>
 					</tr>
+				</g:checkAVenir>
 				</g:each>
 				</tbody>
 				<thead>
@@ -64,13 +60,12 @@
 				</thead>
 				<tbody>
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
+				<g:checkTermine sondage="$sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
-					
-						<td>${fieldValue(bean: sondageInstance, field: "moy")}</td>
-					
+						<td><g:link controller="direction" action="showResults" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+						<td><g:link controller="direction" action="showResults" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "moy")}</g:link></td>
 					</tr>
+				</g:checkTermine>
 				</g:each>
 				</tbody>
 			</table>
