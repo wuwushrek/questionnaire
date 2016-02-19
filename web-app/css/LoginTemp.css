@@ -1,22 +1,13 @@
 body{
-	background-color: cyan;
+	background-color: white;
 }
 .form-container {
    border: 2px solid #615243;
-   background: #38312a;
-   background: -webkit-gradient(linear, left top, left bottom, from(#d6d1cb), to(#38312a));
-   background: -webkit-linear-gradient(top, #d6d1cb, #38312a);
-   background: -moz-linear-gradient(top, #d6d1cb, #38312a);
-   background: -ms-linear-gradient(top, #d6d1cb, #38312a);
-   background: -o-linear-gradient(top, #d6d1cb, #38312a);
-   background-image: -ms-linear-gradient(top, #d6d1cb 0%, #38312a 100%);
+   background: orange;
    -webkit-border-radius: 23px;
    -moz-border-radius: 23px;
    border-radius: 23px;
-   -webkit-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
-   -moz-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
-   box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
-   font-family: 'Helvetica Neue',Helvetica,sans-serif;
+   font-family: 'Bauhaus 93',Bauhaus,sans-serif;
    text-decoration: none;
    vertical-align: middle;
    min-width:300px;
@@ -30,7 +21,7 @@ body{
    }
 .form-field {
    border: 2px solid #96928e;
-   background: #96897b;
+   background: white;
    -webkit-border-radius: 12px;
    -moz-border-radius: 12px;
    border-radius: 12px;
@@ -48,9 +39,10 @@ body{
    }
 .form-title {
    margin-bottom:10px;
-   color: #050505;
+   color: white;
    text-shadow: #1c1c10 0 1px 0;
    text-align:center;
+   font-size : 23px;
    }
 .submit-container {
    margin:8px 0;
@@ -74,8 +66,8 @@ body{
    box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
    text-shadow: #7ea4bd 0 1px 0;
    color: #e8ebed;
-   font-size: 15px;
-   font-family: helvetica, serif;
+   font-size: 25px;
+   font-family: 'Bauhaus 93',Bauhaus, serif;
    text-decoration: none;
    vertical-align: middle;
    }
