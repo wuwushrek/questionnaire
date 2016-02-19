@@ -3,12 +3,18 @@ package questionnaire
 class LoggingController {
 
 	def index = { redirect(action: "login") }
-	def login = {}
+	def login = {
+		if(session.user!=null){
+			redirect (controller:"eleve", action:"index")
+			return
+		}
+	}
 	def logout={
 		session.user=null
 		redirect(action:"login")
 	}
 	def authentification ={
+		
 		def eleve = Eleve.findByNomAndMdp(params.login,params.mdp)
 		if(eleve){
 			session.user=eleve                                           
