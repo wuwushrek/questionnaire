@@ -7,4 +7,7 @@ class Eleve {
 		nom(blank: false, nullable: false, unique: true)
 		mdp(blank: false, minSize: 4);
 	}	
+	String toString(){
+		return nom
+	}
 }

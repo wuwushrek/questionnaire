@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="layout" content="main">
-<title>Questionnaire rempli</title>
+<title>Remplissage Questionnaire</title>
 <link rel="stylesheet"
 	href="${resource(dir:'css',file:'custombutton.css')}" />
 </head>

@@ -21,4 +21,15 @@ class DejaValideTagLib {
 			out << body()
 		}
 	}
+	def checkSondage={ attrs, body->
+		Eleve eleve = Eleve.findByNom(attrs.eleve)
+		for(Sondage sond : Sondage.list()){
+			Note note = Note.findBySondageAndEleve(sond,eleve);
+			if(note==null){
+				out<<"<th style=\"text-align:center;\"><input type=\"radio\" onClick=\"return false;\"/></th>"
+			}else{
+				out<<"<th style=\"text-align:center;\"><input type=\"radio\" checked=\"checked\" onClick=\"return false;\"/></th>"
+			}
+		}
+	}
 }

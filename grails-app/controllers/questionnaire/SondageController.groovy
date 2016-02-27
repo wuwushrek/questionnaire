@@ -20,6 +20,16 @@ class SondageController {
     }
 
     def create() {
+		if(session.user==null){
+			redirect(controller:"logging", action:"login")
+			return
+		}
+		if(!session.user.class.getName().equals("questionnaire.Direction"))
+		{
+			flash.message="Vous n'avez pas les droits d'acces a cette page ! Veuillez contacter l'admin"
+			redirect (controller:"eleve", action:"index")
+			return
+		}
         respond new Sondage(params)
     }
 

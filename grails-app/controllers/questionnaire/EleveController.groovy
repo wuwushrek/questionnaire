@@ -1,5 +1,6 @@
 package questionnaire
 import static org.springframework.http.HttpStatus.*
+import grails.converters.JSON
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -12,6 +13,12 @@ class EleveController {
 			redirect(controller:"logging",action:"login")
 			return
 		}
+		if(session.user.class.getName().equals("questionnaire.Direction"))
+		{
+			flash.message="Vous etes Admin! Redirection vers accueil Admin..."
+			redirect (controller:"direction", action:"indexChoix")
+			return
+		}
         params.max = Math.min(max ?: 10, 100)
         respond Sondage.list(params),model:[sondageInstanceCount: Sondage.count()]
     }
@@ -19,7 +26,6 @@ class EleveController {
     def show(Eleve eleveInstance) {
         respond eleveInstance
     }	
-
 
     @Transactional
     def save(Eleve eleveInstance) {

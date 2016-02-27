@@ -2,8 +2,6 @@
 <html>
 <head>
 <meta name="layout" content="main">
-<g:set var="entityName"
-	value="${message(code: 'direction.label', default: 'Direction')}" />
 <title>Questionnaire</title>
 <link rel="stylesheet"
 	href="${resource(dir:'css',file:'custombutton.css')}" />
@@ -12,40 +10,44 @@
 <body>
 	<a href="#create-direction" class="skip" tabindex="-1"><g:message
 			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
-	<div class="nav" role="navigation">
-		<ul>
-			<li><a class="home" href="${createLink(uri: '/')}"><g:message
-						code="default.home.label" /></a></li>
-			<li><g:link class="list" action="index">
-					<g:message code="default.list.label" args="[entityName]" />
-				</g:link></li>
-		</ul>
-	</div>
 	<div id="create-direction" class="content scaffold-create" role="main">
 		<h1>Faites votre choix</h1>
+		<br>
 		<g:if test="${flash.message}">
 			<div class="message" role="status">
 				${flash.message}
 			</div>
 		</g:if>
-		<div>
+		<div style="margin:auto;text-align:center;">
 			<g:form action="index">
-				<input class="retourbutton" type="submit"
+				<input class="retourbutton" type="submit" style="width:300px;"
 					value="Liste des questionnaires">
 			</g:form>
 		</div>
-		<div>
+		<br>
+		<div style="margin:auto;text-align:center;">
+			<g:form action="statSondageEleve">
+				<input class="retourbutton" type="submit" style="width:300px;"
+					value="Voir Sondages|Eleves">
+			</g:form>
+		</div>
+		
+		<br>
+		<div style="margin:auto;text-align:center;">
 			<g:form controller="sondage" action="create">
-				<input class="retourbutton" type="submit"
+				<input class="retourbutton" type="submit" style="width:300px;"
 					value="Creer un questionnaire">
 			</g:form>
 		</div>
-		<div>
+		<br>
+		<div style="margin:auto;text-align:center;">
 			<g:form controller="eleve" action="index">
 				<!-- A changer -->
-				<input class="retourbutton" type="submit" value="Ajouter un ELeve">
+				<input class="retourbutton" type="submit" style="width:300px;"
+					value="Ajouter un eleve">
 			</g:form>
 		</div>
+		<br>
 	</div>
 </body>
 </html>

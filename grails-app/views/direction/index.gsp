@@ -11,7 +11,7 @@
 		<a href="#list-direction" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><g:link class="create" action="indexChoix"><g:message code="Accueil Admin" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="créer sondage" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -31,8 +31,8 @@
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 				<g:checkEncours sondage="${sondageInstance}">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td> <g:link controller= "direction" action="showResults" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
-						<td> <g:link controller= "direction" action="showResults" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "moy")}</g:link></td>
+						<td> <g:link controller= "direction" action="sondageStat" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+						<td> <g:link controller= "direction" action="sondageStat" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "moy")}</g:link></td>
 					</tr>
 					</g:checkEncours>
 				</g:each>
@@ -62,8 +62,8 @@
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 				<g:checkTermine sondage="$sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link controller="direction" action="showResults" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
-						<td><g:link controller="direction" action="showResults" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "moy")}</g:link></td>
+						<td><g:link controller="direction" action="sondageStat" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+						<td><g:link controller="direction" action="sondageStat" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "moy")}</g:link></td>
 					</tr>
 				</g:checkTermine>
 				</g:each>
