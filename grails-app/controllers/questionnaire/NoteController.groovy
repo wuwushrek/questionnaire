@@ -30,7 +30,7 @@ class NoteController {
 		accesEleve()
 		Note note = Note.findBySondageAndEleve(Sondage.findByNom(params.id),session.user)
 		if(note==null){
-			flash.message="Sondage: ${params.id} est inexistant ou n' a pas encore ete envoye !"
+			flash.message="Sondage: ${params.id} est inexistant ou n' a pas ete envoye !"
 			redirect (controller:"eleve", action:"index")
 			return
 		}

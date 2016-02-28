@@ -39,7 +39,7 @@
 					<tr>
 					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
 					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de début')}" />
-					<g:sortableColumn style="width:50%" property="date" title="${message(code: 'eleve.nom.label', default: 'Valider?')}" />
+					<g:sortableColumn style="width:50%" property="date" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
 					</tr>
 				</thead>
 				<tbody>

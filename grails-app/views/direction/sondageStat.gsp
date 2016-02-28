@@ -72,7 +72,8 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><g:link class="create" action="indexChoix"><g:message code="Accueil Admin" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="créer sondage" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" controller="sondage" action="create"><g:message code="créer sondage" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" controller="sondage" action="edit"><g:message code="Modifier sondage" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
     <div id="piechart_3d" style="width: 70%; height: 45%;border: 1px solid #0a3c59;float:left;"></div>
