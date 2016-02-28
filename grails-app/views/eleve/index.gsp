@@ -19,6 +19,7 @@
 					<tr>
 					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage en cours')}" />
 					<g:sortableColumn style="width:50%" property="date" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
+					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -27,6 +28,7 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 						<td><g:link controller= "note" action="showQuestionnaire" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
 						<td><g:link controller= "note" action="showQuestionnaire" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "fin")}</g:link></td>
+						<g:checkValide sondage="${sondageInstance}"></g:checkValide>
 					</tr>
 					</g:checkEncours>
 				</g:each>
@@ -37,6 +39,7 @@
 					<tr>
 					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
 					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de début')}" />
+					<g:sortableColumn style="width:50%" property="date" title="${message(code: 'eleve.nom.label', default: 'Valider?')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -55,6 +58,7 @@
 					<tr>
 					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
 					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
+					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -63,6 +67,7 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 						<td><g:link controller="note" action="showNote" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
 						<td><g:link controller="note" action="showNote" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "fin")}</g:link></td>
+						<g:checkValide sondage="${sondageInstance}"></g:checkValide>
 					</tr>
 				</g:checkTermine>
 				</g:each>

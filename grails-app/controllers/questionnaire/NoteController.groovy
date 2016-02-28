@@ -19,6 +19,10 @@ class NoteController {
 			redirect (controller:"eleve", action:"index")
 			return
 		}
+		if(Note.findBySondageAndEleve(sond,session.user)!=null){
+			redirect(action:"showNote",params:[id:nomQuestionnaire])
+			return
+		}
 		return params
 	}
 
@@ -48,7 +52,7 @@ class NoteController {
 			return
 		}
 		if (Note.findBySondageAndEleve(sond,session.user)!=null){
-			flash.message="Validation impossible ! Le sondage avait deja ete rempli..."
+			flash.message="Validation impossible ! Le sondage avait deja ete rempli"
 			redirect(controller:"eleve",action:"index")
 			return
 		}

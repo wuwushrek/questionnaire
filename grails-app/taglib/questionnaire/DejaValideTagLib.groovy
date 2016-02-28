@@ -32,4 +32,11 @@ class DejaValideTagLib {
 			}
 		}
 	}
+	def checkValide={attrs,body->
+		if(Note.findBySondageAndEleve(attrs.sondage,session.user)!=null){
+			out<<"<td style=\"text-align:center;\"><input type=\"radio\" checked=\"checked\" onClick=\"return false;\"/></td>"
+		}else{
+			out<<"<td style=\"text-align:center;\"><input type=\"radio\" onClick=\"return false;\"/></td>"
+		}
+	}
 }
