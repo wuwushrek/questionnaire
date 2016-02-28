@@ -11,6 +11,7 @@ class SondageController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
+		accesDirection()
         params.max = Math.min(max ?: 10, 100)
         respond Sondage.list(params), model:[sondageInstanceCount: Sondage.count()]
     }
@@ -20,16 +21,7 @@ class SondageController {
     }
 
     def create() {
-		if(session.user==null){
-			redirect(controller:"logging", action:"login")
-			return
-		}
-		if(!session.user.class.getName().equals("questionnaire.Direction"))
-		{
-			flash.message="Vous n'avez pas les droits d'acces a cette page ! Veuillez contacter l'admin"
-			redirect (controller:"eleve", action:"index")
-			return
-		}
+		accesDirection()
         respond new Sondage(params)
     }
 
@@ -57,6 +49,7 @@ class SondageController {
     }
 
     def edit(Sondage sondageInstance) {
+		accesDirection()
         respond sondageInstance
     }
 
@@ -111,4 +104,16 @@ class SondageController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	
+	protected void accesDirection(){
+		if(session.user==null){
+			redirect controller:"logging", action:"login"
+			return
+		}
+		if(!session.user.class.getName().equals("questionnaire.Direction")){
+			flash.message="Vous n'etes pas admin! Veuillez monter en grade :P"
+			redirect (controller:"eleve", action:"index")
+			return
+		}
+	}
 }

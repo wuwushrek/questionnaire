@@ -9,16 +9,7 @@ class EleveController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-		if(session.user==null){
-			redirect(controller:"logging",action:"login")
-			return
-		}
-		if(session.user.class.getName().equals("questionnaire.Direction"))
-		{
-			flash.message="Vous etes Admin! Redirection vers accueil Admin..."
-			redirect (controller:"direction", action:"indexChoix")
-			return
-		}
+		accesEleve()
         params.max = Math.min(max ?: 10, 100)
         respond Sondage.list(params),model:[sondageInstanceCount: Sondage.count()]
     }
@@ -26,7 +17,12 @@ class EleveController {
     def show(Eleve eleveInstance) {
         respond eleveInstance
     }	
-
+	
+	def create (){
+		accesDirection()
+		respond new Eleve(params)
+	}
+	
     @Transactional
     def save(Eleve eleveInstance) {
         if (eleveInstance == null) {
@@ -51,6 +47,10 @@ class EleveController {
     }
 
     def edit(Eleve eleveInstance) {
+		if(session.user==null){
+			redirect controller:"logging", action:"login"
+			return
+		}
         respond eleveInstance
     }
 
@@ -77,9 +77,8 @@ class EleveController {
         }
     }
 
-    /*@Transactional
+    @Transactional
     def delete(Eleve eleveInstance) {
-
         if (eleveInstance == null) {
             notFound()
             return
@@ -94,7 +93,7 @@ class EleveController {
             }
             '*'{ render status: NO_CONTENT }
         }
-    }*/
+    }
 
     protected void notFound() {
         request.withFormat {
@@ -105,4 +104,29 @@ class EleveController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	
+	protected void accesEleve(){
+		if(session.user==null){
+			redirect(controller:"logging",action:"login")
+			return
+		}
+		if(session.user.class.getName().equals("questionnaire.Direction"))
+		{
+			flash.message="Vous etes Admin! Redirection vers accueil Admin..."
+			redirect (controller:"direction", action:"indexChoix")
+			return
+		}
+	}
+	
+	protected void accesDirection(){
+		if(session.user==null){
+			redirect controller:"logging", action:"login"
+			return
+		}
+		if(!session.user.class.getName().equals("questionnaire.Direction")){
+			flash.message="Vous n'etes pas admin! Veuillez monter en grade :P"
+			redirect (controller:"eleve", action:"index")
+			return
+		}
+	}
 }

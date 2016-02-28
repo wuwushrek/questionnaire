@@ -8,19 +8,12 @@ class DirectionController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-	def indexChoix() {}
+	def indexChoix() {
+		accesDirection()
+	}
 	
 	def sondageStat(){
-		if(session.user==null){
-			redirect(controller:"logging", action:"login")
-			return
-		}
-		if(!session.user.class.getName().equals("questionnaire.Direction"))
-		{
-			flash.message="Vous n'avez pas les droits d'acces a cette page ! Veuillez contacter l'admin"
-			redirect (controller:"eleve", action:"index")
-			return
-		}
+		accesDirection()
 		def notes = Sondage.findByNom(params.id).note
 		def note1=0
 		def note2=0
@@ -51,15 +44,13 @@ class DirectionController {
 	}
 	
     def index(Integer max) {
-        if(session.user==null){
-			redirect(controller:"logging",action:"login")
-			return
-		}
+		accesDirection()
         params.max = Math.min(max ?: 10, 100)
         respond Sondage.list(params),model:[sondageInstanceCount: Sondage.count()]
     }
 
     def show(Direction directionInstance) {
+		accesDirection()
         respond directionInstance
     }
 
@@ -90,20 +81,12 @@ class DirectionController {
         }
     }
 	def statSondageEleve(){
-		if(session.user==null){
-			redirect(controller:"logging", action:"login")
-			return
-		}
-		if(!session.user.class.getName().equals("questionnaire.Direction"))
-		{
-			flash.message="Vous n'avez pas les droits d'acces a cette page ! Veuillez contacter l'admin"
-			redirect (controller:"eleve", action:"index")
-			return
-		}
+		accesDirection()
 		return [sondageInstanceList:Sondage.list(), eleveInstanceList:Eleve.list()]
 	}
 	
     def edit(Direction directionInstance) {
+		accesDirection()
         respond directionInstance
     }
 
@@ -158,4 +141,16 @@ class DirectionController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	protected void accesDirection(){
+		if(session.user==null){
+			redirect controller:"logging", action:"login"
+			return
+		}
+		if(!session.user.class.getName().equals("questionnaire.Direction")){
+			flash.message="Vous n'etes pas admin! Veuillez monter en grade :P"
+			redirect (controller:"eleve", action:"index")
+			return
+		}
+	}
+	
 }

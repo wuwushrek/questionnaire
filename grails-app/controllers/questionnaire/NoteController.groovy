@@ -11,49 +11,22 @@ class NoteController {
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	def showQuestionnaire() {
-		if(session.user==null){
-			redirect(controller:"logging", action:"login")
-			return
-		}
-		if(session.user.class.getName().equals("questionnaire.Direction"))
-		{
-			flash.message="Vous ne pouvez pas visualiser une note! Seul un eleve peut.."
-			redirect (controller:"direction", action:"index")
-			return
-		}
-		
+		accesEleve()	
 		String nomQuestionnaire=params.id;
 		Sondage sond = Sondage.findByNom(nomQuestionnaire)
 		if(sond==null){
-			flash.message="Sondage: ${params.id} a expire ou est inexistant !veuillez choisir un sondage en cours"
+			flash.message="Sondage: ${params.id} est inexistant !veuillez choisir un sondage en cours"
 			redirect (controller:"eleve", action:"index")
 			return
-		}		
-		Note noteSondage=Note.findBySondageAndEleve(sond,session.user)	
-		if(noteSondage==null){
-			return params
-		}else{
-			redirect(action:"showNote",params:[id:nomQuestionnaire,dejateste:true])
 		}
+		return params
 	}
 
 	def showNote(){
-		if(!params.dejateste){
-			if(session.user==null){
-				redirect(controller:"logging", action:"login")
-				return
-			}
-			if(session.user.class.getName().equals("questionnaire.Direction"))
-			{
-				flash.message="Vous ne pouvez pas visualiser une note! Seul un eleve peut.."
-				redirect (controller:"direction", action:"index")
-				return
-			}
-		}
+		accesEleve()
 		Note note = Note.findBySondageAndEleve(Sondage.findByNom(params.id),session.user)
-
 		if(note==null){
-			flash.message="Sondage ${params.id} a expire ou est inexistant !veuillez choisir un sondage en cours"
+			flash.message="Sondage: ${params.id} est inexistant ou n' a pas encore ete envoye !"
 			redirect (controller:"eleve", action:"index")
 			return
 		}
@@ -61,10 +34,7 @@ class NoteController {
 	}
 
 	def valider(){
-		if(session.user==null){
-			redirect(controller:"logging", action:"login")
-			return
-		}
+		accesEleve()
 		String nomQuestionnaire = params.id;
 		if(params.note==null){
 			flash.message="Vous n'avez pas rentre de note ! Veuillez le faire..."
@@ -77,14 +47,13 @@ class NoteController {
 			redirect (controller:"eleve", action:"index")
 			return
 		}
-		/*Note note = Note.findBySondageAndEleve(sond,session.user)
-		if (note!=null){
-			redirect(action:"showNote",params:[id:nomQuestionnaire,dejateste:true])
+		if (Note.findBySondageAndEleve(sond,session.user)!=null){
+			redirect(action:"showNote",params:[id:nomQuestionnaire])
 			return
-		}*/
+		}
 		Note maNote = new Note(note:params.note,sondage:sond,eleve:session.user);
 		maNote.save()
-		redirect (action:"showNote",params:[id:nomQuestionnaire,dejateste:true])
+		redirect (action:"showNote",params:[id:nomQuestionnaire])
 	}
 
 	def retour(){
@@ -110,6 +79,19 @@ class NoteController {
 				redirect action:"index", method:"GET"
 			}
 			'*'{ render status: NO_CONTENT }
+		}
+	}
+	
+	protected void accesEleve(){
+		if(session.user==null){
+			redirect(controller:"logging",action:"login")
+			return
+		}
+		if(session.user.class.getName().equals("questionnaire.Direction"))
+		{
+			flash.message="Vous etes Admin! Redirection vers accueil Admin..."
+			redirect (controller:"direction", action:"indexChoix")
+			return
 		}
 	}
 }

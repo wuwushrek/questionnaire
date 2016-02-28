@@ -9,11 +9,6 @@
 	</head>
 	<body>
 		<a href="#list-eleve" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-			</ul>
-		</div>
 		<div id="list-eleve" class="content scaffold-list" role="main">
 			<h1 style="font-size:20px">Liste des sondages</h1>
 			<g:if test="${flash.message}">
@@ -66,8 +61,8 @@
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 				<g:checkTermine sondage="$sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link controller="note" action="showQuestionnaire" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
-						<td><g:link controller="note" action="showQuestionnaire" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "fin")}</g:link></td>
+						<td><g:link controller="note" action="showNote" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+						<td><g:link controller="note" action="showNote" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "fin")}</g:link></td>
 					</tr>
 				</g:checkTermine>
 				</g:each>

@@ -11,9 +11,9 @@
 		<a href="#show-sondage" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" controller="direction" action="indexChoix"><g:message code="Accueil Admin" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" controller="direction" action="index"><g:message code="Listes sondages" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="créer sondage" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="show-sondage" class="content scaffold-show" role="main">
