@@ -41,7 +41,7 @@
 		</div>
 		<br>
 		<div style="margin:auto;text-align:center;">
-			<g:form controller="eleve" action="index">
+			<g:form controller="eleve" action="create">
 				<!-- A changer -->
 				<input class="retourbutton" type="submit" style="width:300px;"
 					value="Ajouter un eleve">

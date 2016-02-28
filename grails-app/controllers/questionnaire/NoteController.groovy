@@ -48,7 +48,8 @@ class NoteController {
 			return
 		}
 		if (Note.findBySondageAndEleve(sond,session.user)!=null){
-			redirect(action:"showNote",params:[id:nomQuestionnaire])
+			flash.message="Validation impossible ! Le sondage avait deja ete rempli..."
+			redirect(controller:"eleve",action:"index")
 			return
 		}
 		Note maNote = new Note(note:params.note,sondage:sond,eleve:session.user);

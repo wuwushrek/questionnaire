@@ -12,6 +12,7 @@
 			<ul>
 				<li><g:link class="create" action="indexChoix"><g:message code="Accueil Admin" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="créer sondage" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" controller="eleve" action="create"><g:message code="Ajouter Eleve" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-direction" class="content scaffold-list" role="main">
