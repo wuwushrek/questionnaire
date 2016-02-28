@@ -65,8 +65,8 @@
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 				<g:checkTermine sondage="$sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link controller="note" action="showNote" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
-						<td><g:link controller="note" action="showNote" id="${sondageInstance.id}">${fieldValue(bean: sondageInstance, field: "fin")}</g:link></td>
+						<td><g:link controller="note" action="showNote" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+						<td><g:link controller="note" action="showNote" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "fin")}</g:link></td>
 						<g:checkValide sondage="${sondageInstance}"></g:checkValide>
 					</tr>
 				</g:checkTermine>
