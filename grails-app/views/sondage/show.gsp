@@ -50,17 +50,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${sondageInstance?.note}">
-				<li class="fieldcontain">
-					<span id="note-label" class="property-label"><g:message code="sondage.note.label" default="Note" /></span>
-					
-						<g:each in="${sondageInstance.note}" var="n">
-						<span class="property-value" aria-labelledby="note-label"><g:link controller="note" action="show" id="${n.id}">${n?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form url="[resource:sondageInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

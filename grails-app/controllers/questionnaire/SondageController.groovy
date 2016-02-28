@@ -52,7 +52,7 @@ class SondageController {
 		accesDirection()
         respond sondageInstance
     }
-
+	
     @Transactional
     def update(Sondage sondageInstance) {
         if (sondageInstance == null) {
