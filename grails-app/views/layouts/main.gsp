@@ -12,8 +12,15 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="questionnaireLogo" style="position:relative;"><asset:image src="logo questionnaire.png" width="960"/>
-			<div id="loginHeader"><g:loginControl /></div>
+		<div id="questionnaireLogo" style="position:relative;text-align:center;">
+			<div class="img-container">
+				<div id="loginHeader">
+					<g:form controller="logging" action="logout">
+						<g:loginControl />
+					</g:form>
+				</div>
+				<asset:image src="logo questionnaire.png" width="960"/>
+			</div>
 		</div>
 		<g:layoutBody/>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
