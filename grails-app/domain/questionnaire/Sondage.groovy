@@ -17,8 +17,7 @@ class Sondage {
 		for(int i=0;i<note.size();i++){
 			moy += note.getAt(i).note;
 		}
-		moy/=note.size();
-		return moy;
+		return moy!=0?moy/note.size():0;
 	}
 	
 	String toString(){

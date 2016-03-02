@@ -24,9 +24,9 @@
 			<table border= "1" style="text-align:center;">
 			<thead>
 					<tr>
-						<th style="text-align:center;">Eleve|Sondage</th>
+						<th style="text-align:center;background:#FF9933;">Eleves</th>
 						<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
-							<th style="text-align:center;">
+							<th style="text-align:center;background:#FF9933;">
 								<g:link controller= "direction" action="sondageStat" id="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link>
 							</th>
 						</g:each>

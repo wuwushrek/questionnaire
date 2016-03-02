@@ -1,7 +1,8 @@
 /* FONT STACK */
 body,
 input, select, textarea {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	/*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;*/
+	font-family:'Comic Sans MS','Lucida Sans Unicode'
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -135,7 +136,7 @@ img {
 /* NAVIGATION MENU */
 
 .nav {
-	background-color: #efefef;
+	background-color: #FFFFCC;
 	padding: 0.5em 0.75em;
 	   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
 	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;

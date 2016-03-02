@@ -11,7 +11,7 @@
 	<a href="#create-direction" class="skip" tabindex="-1"><g:message
 			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
 	<div id="create-direction" class="content scaffold-create" role="main">
-		<h1>Faites votre choix</h1>
+		<h1 style="font-size:30px;font-family:'Comic Sans MS','Lucida Sans Unicode';"><b>Faites votre choix</b></h1>
 		<br>
 		<g:if test="${flash.message}">
 			<div class="message" role="status">

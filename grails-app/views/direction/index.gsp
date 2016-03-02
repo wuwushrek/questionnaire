@@ -16,15 +16,16 @@
 			</ul>
 		</div>
 		<div id="list-direction" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1 style="font-size:30px;text-align:center;font-family:'Comic Sans MS','Lucida Sans Unicode';"><b>Liste des sondages</b></h1>
+			<br>
 			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
+				<div class="message" style="color:red;"role="status">${flash.message}</div>
 			</g:if>
 			<table>
 			<thead>
 					<tr>
-						<g:sortableColumn property="nom" title="${message(code: 'direction.nom.label', default: 'Sondage en cours')}" />
-						<g:sortableColumn property="mdp" title="${message(code: 'direction.mdp.label', default: 'Moyenne')}" />
+						<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;" title="${message(code: 'direction.nom.label', default: 'Sondage en cours')}" />
+						<g:sortableColumn property="mdp" style="text-align:center;background:#FF9933;" title="${message(code: 'direction.mdp.label', default: 'Moyenne')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -39,7 +40,7 @@
 				</tbody>
 				<thead>
 					<tr>
-					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
+					<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -54,8 +55,8 @@
 				</tbody>
 				<thead>
 					<tr>
-					<g:sortableColumn property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
-					<g:sortableColumn property="mdp" title="${message(code: 'eleve.mdp.label', default: 'Moyenne')}" />
+					<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
+					<g:sortableColumn property="mdp" style="text-align:center;background:#FF9933;" title="${message(code: 'eleve.mdp.label', default: 'Moyenne')}" />
 					</tr>
 				</thead>
 				<tbody>

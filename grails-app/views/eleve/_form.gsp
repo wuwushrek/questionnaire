@@ -12,7 +12,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: eleveInstance, field: 'mdp', 'error')} required">
 	<label for="mdp">
-		<g:message code="eleve.mdp.label" default="Mdp" />
+		<g:message code="eleve.mdp.label" default="Mot de passe" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="mdp" required="" value="${eleveInstance?.mdp}"/>

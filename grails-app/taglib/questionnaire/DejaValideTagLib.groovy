@@ -26,17 +26,17 @@ class DejaValideTagLib {
 		for(Sondage sond : Sondage.list()){
 			Note note = Note.findBySondageAndEleve(sond,eleve);
 			if(note==null){
-				out<<"<th style=\"text-align:center;\"><input type=\"radio\" onClick=\"return false;\"/></th>"
+				out<<"<th style=\"text-align:center;\"><input type=\"checkbox\" onClick=\"return false;\"/></th>"
 			}else{
-				out<<"<th style=\"text-align:center;\"><input type=\"radio\" checked=\"checked\" onClick=\"return false;\"/></th>"
+				out<<"<th style=\"text-align:center;\"><input type=\"checkbox\" checked=\"checked\" onClick=\"return false;\"/></th>"
 			}
 		}
 	}
 	def checkValide={attrs,body->
 		if(Note.findBySondageAndEleve(attrs.sondage,session.user)!=null){
-			out<<"<td style=\"text-align:center;\"><input type=\"radio\" checked=\"checked\" onClick=\"return false;\"/></td>"
+			out<<"<td style=\"text-align:center;\"><input type=\"checkbox\" checked=\"checked\" onClick=\"return false;\"/></td>"
 		}else{
-			out<<"<td style=\"text-align:center;\"><input type=\"radio\" onClick=\"return false;\"/></td>"
+			out<<"<td style=\"text-align:center;\"><input type=\"checkbox\" onClick=\"return false;\"/></td>"
 		}
 	}
 }

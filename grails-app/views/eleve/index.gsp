@@ -10,16 +10,17 @@
 	<body>
 		<a href="#list-eleve" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="list-eleve" class="content scaffold-list" role="main">
-			<h1 style="font-size:20px">Liste des sondages</h1>
+			<h1 style="font-size:30px;text-align:center;font-family:'Comic Sans MS','Lucida Sans Unicode';"><b>Liste des sondages</b></h1>
+			<br>
 			<g:if test="${flash.message}">
 				<div class="message" role="status" style="color:#FF0000">${flash.message}</div>
 			</g:if>
 			<table>
 			<thead>
 					<tr>
-					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage en cours')}" />
-					<g:sortableColumn style="width:50%" property="date" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
-					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
+					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage en cours')}" />
+					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="date" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
+					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -37,17 +38,17 @@
 			<table>
 				<thead>
 					<tr>
-					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
-					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de début')}" />
-					<g:sortableColumn style="width:50%" property="date" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
+					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
+					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de début')}" />
+					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="date" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 				<g:checkAVenir sondage="$sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td style="color:blue;">${fieldValue(bean: sondageInstance, field: "nom")}</td>
-						<td style="color:blue;">${fieldValue(bean: sondageInstance, field: "debut")}</td>
+						<td>${fieldValue(bean: sondageInstance, field: "nom")}</td>
+						<td>${fieldValue(bean: sondageInstance, field: "debut")}</td>
 					</tr>
 				</g:checkAVenir>
 				</g:each>
@@ -56,9 +57,9 @@
 				<table>
 				<thead>
 					<tr>
-					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
-					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
-					<g:sortableColumn style="width:50%" property="nom" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
+					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
+					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
+					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
 					</tr>
 				</thead>
 				<tbody>
