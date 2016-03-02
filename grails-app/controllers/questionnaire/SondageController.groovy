@@ -36,7 +36,7 @@ class SondageController {
             respond sondageInstance.errors, view:'create'
             return
         }
-
+		
         sondageInstance.save flush:true
 
         request.withFormat {
@@ -64,7 +64,6 @@ class SondageController {
             respond sondageInstance.errors, view:'edit'
             return
         }
-
         sondageInstance.save flush:true
 
         request.withFormat {

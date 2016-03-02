@@ -15,8 +15,16 @@
 		<g:message code="eleve.mdp.label" default="Mot de passe" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="mdp" required="" value="${eleveInstance?.mdp}"/>
+	<input name="mdp" type="password" value="${eleveInstance?.mdp}"/>
 
 </div>
+<div class="fieldcontain ${hasErrors(bean: eleveInstance, field: 'mdp', 'error')} required">
+	<label for="mdp">
+		<g:message code="eleve.mdp.label" default="Confirmer mot de passe" />
+		<span class="required-indicator">*</span>
+	</label>
+	<input type="password" name="mdp2" value="${eleveInstance?.mdp}"/>
+</div>
+
 
 

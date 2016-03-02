@@ -9,6 +9,11 @@
 	</head>
 	<body>
 		<a href="#list-eleve" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<div class="nav" role="navigation">
+			<ul>
+				<li><g:link class="create" controller="eleve" action="edit" resource="${session.user}"><g:message code="Modifier votre profil" args="[entityName]" /></g:link></li>
+			</ul>
+		</div>
 		<div id="list-eleve" class="content scaffold-list" role="main">
 			<h1 style="font-size:30px;text-align:center;font-family:'Comic Sans MS','Lucida Sans Unicode';"><b>Liste des sondages</b></h1>
 			<br>

@@ -16,7 +16,7 @@
 			</ul>
 		</div>
 		<div id="list-direction" class="content scaffold-list" role="main">
-			<h1>Visualisation des sondages soumis par chaque eleve</h1>
+			<h1 style="font-size:30px;text-align:center;font-family:'Comic Sans MS','Lucida Sans Unicode';"><b>Visualisation des sondages soumis par chaque élève</b></h1>
 			<br>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>

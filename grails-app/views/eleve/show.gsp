@@ -11,10 +11,7 @@
 		<a href="#show-eleve" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><g:link class="create" controller="direction" action="indexChoix"><g:message code="Accueil Admin" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" controller="direction" action="statSondageEleve"><g:message code="Listes des Eleves" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="Ajouter Eleve" args="[entityName]" /></g:link></li>
-				
+				<li><g:link class="home" action="index"><g:message code="Retour" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="show-eleve" class="content scaffold-show" role="main">
@@ -23,15 +20,6 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list eleve">
-			
-				<g:if test="${eleveInstance?.mdp}">
-				<li class="fieldcontain">
-					<span id="mdp-label" class="property-label"><g:message code="eleve.mdp.label" default="Mdp" /></span>
-					
-						<span class="property-value" aria-labelledby="mdp-label"><g:fieldValue bean="${eleveInstance}" field="mdp"/></span>
-					
-				</li>
-				</g:if>
 			
 				<g:if test="${eleveInstance?.nom}">
 				<li class="fieldcontain">

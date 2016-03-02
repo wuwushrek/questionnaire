@@ -82,16 +82,16 @@
     <br><br><br><br><br><br><br><br><br><br><br><br>
     	<table border="1" style="text-align:center;margin:auto;">
     		<tr>
-    			<th>Sondages remplis</th>
-    			<th>${enregistre}</th>
+    			<th style="background:#FF9933;">Sondages remplis</th>
+    			<th style="background:#FF9933;">${enregistre}</th>
     		</tr>
     		<tr>
-    			<th>Moyenne </th>
-    			<th>${moyenne}</th>
+    			<th style="background:#FF9933;">Moyenne </th>
+    			<th style="background:#FF9933;">${moyenne}</th>
     		</tr>
     		<tr>
-    			<th>Variance sondages</th>
-    			<th>${variance}</th>
+    			<th style="background:#FF9933;">Variance sondages</th>
+    			<th style="background:#FF9933;">${variance}</th>
     		</tr>
     	</table>
     	<br/>

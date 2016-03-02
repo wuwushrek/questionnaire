@@ -34,7 +34,13 @@ class EleveController {
             respond eleveInstance.errors, view:'create'
             return
         }
-
+		
+		if(!params.mdp2.equals(params.mdp)){
+			flash.message="Verifier les deux mots de passe"
+			redirect(action:"create")
+			return
+		}
+		
         eleveInstance.save flush:true
 
         request.withFormat {
