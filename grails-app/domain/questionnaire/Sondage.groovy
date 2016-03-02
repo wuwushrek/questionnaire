@@ -2,14 +2,13 @@ package questionnaire
 
 class Sondage {
 	String nom
-	Date debut
+	Date debut=new Date()
 	Date fin
 	static hasMany=[note:Note]
 	
 	static constraints = {
 		nom(blank:false,unique: true, size:3..30)
-		debut(validator: {return (it>=new Date())})
-		fin(min: new Date())
+		fin(validator: {return (it>=new Date())})
 	}
 	
 	double getMoy(){

@@ -29,7 +29,7 @@
 			<g:form url="[resource:sondageInstance, action:'update']" method="PUT" >
 				<g:hiddenField name="version" value="${sondageInstance?.version}" />
 				<fieldset class="form">
-					<g:render template="form"/>
+					<g:render template="form2"/>
 				</fieldset>
 				<fieldset class="buttons">
 					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />

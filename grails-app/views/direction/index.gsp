@@ -21,7 +21,7 @@
 			<g:if test="${flash.message}">
 				<div class="message" style="color:red;"role="status">${flash.message}</div>
 			</g:if>
-			<table>
+			<table style="border-collapse:separate;">
 			<thead>
 					<tr>
 						<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;" title="${message(code: 'direction.nom.label', default: 'Sondage en cours')}" />
@@ -38,9 +38,12 @@
 					</g:checkEncours>
 				</g:each>
 				</tbody>
+				</table>
+				<table style="border-collapse:separate;">
 				<thead>
 					<tr>
-					<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
+					<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;" title="${message(code: 'eleve.nom.label', default: 'Sondage à  venir^')}" />
+					<g:sortableColumn property="mdp" style="text-align:center;background:#FF9933;" title="${message(code: 'direction.mdp.label', default: 'Moyenne')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -53,6 +56,8 @@
 				</g:checkAVenir>
 				</g:each>
 				</tbody>
+				</table>
+				<table style="border-collapse:separate;">
 				<thead>
 					<tr>
 					<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
