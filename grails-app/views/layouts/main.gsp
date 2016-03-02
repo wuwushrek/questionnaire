@@ -12,7 +12,7 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="questionnaireLogo"><asset:image src="logo questionnaire.png" width="960"/>
+		<div id="questionnaireLogo" style="position:relative;"><asset:image src="logo questionnaire.png" width="960"/>
 			<div id="loginHeader"><g:loginControl /></div>
 		</div>
 		<g:layoutBody/>
