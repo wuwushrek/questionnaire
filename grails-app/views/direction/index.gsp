@@ -12,7 +12,7 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><g:link class="create" action="indexChoix"><g:message code="Accueil Admin" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="créer sondage" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="Créer sondage" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-direction" class="content scaffold-list" role="main">
@@ -24,8 +24,8 @@
 			<table style="border-collapse:separate;">
 			<thead>
 					<tr>
-						<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;" title="${message(code: 'direction.nom.label', default: 'Sondage en cours')}" />
-						<g:sortableColumn property="mdp" style="text-align:center;background:#FF9933;" title="${message(code: 'direction.mdp.label', default: 'Moyenne')}" />
+						<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;width:60%;" title="${message(code: 'direction.nom.label', default: 'Sondage en cours')}" />
+						<g:sortableColumn property="mdp" style="text-align:center;background:#FF9933;width:30%;" title="${message(code: 'direction.mdp.label', default: 'Moyenne')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -42,8 +42,8 @@
 				<table style="border-collapse:separate;">
 				<thead>
 					<tr>
-					<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;" title="${message(code: 'eleve.nom.label', default: 'Sondage à  venir^')}" />
-					<g:sortableColumn property="mdp" style="text-align:center;background:#FF9933;" title="${message(code: 'direction.mdp.label', default: 'Moyenne')}" />
+					<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;width:60%;" title="${message(code: 'eleve.nom.label', default: 'Sondage à  venir')}" />
+					<g:sortableColumn property="mdp" style="text-align:center;background:#FF9933;width:30%;" title="${message(code: 'direction.mdp.label', default: 'Moyenne')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -60,8 +60,8 @@
 				<table style="border-collapse:separate;">
 				<thead>
 					<tr>
-					<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
-					<g:sortableColumn property="mdp" style="text-align:center;background:#FF9933;" title="${message(code: 'eleve.mdp.label', default: 'Moyenne')}" />
+					<g:sortableColumn property="nom" style="text-align:center;background:#FF9933;width:60%;" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
+					<g:sortableColumn property="mdp" style="text-align:center;background:#FF9933;width:30%;" title="${message(code: 'eleve.mdp.label', default: 'Moyenne')}" />
 					</tr>
 				</thead>
 				<tbody>

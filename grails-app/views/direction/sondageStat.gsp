@@ -73,7 +73,7 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><g:link class="create" action="indexChoix"><g:message code="Accueil Admin" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" controller="sondage" action="create"><g:message code="créer sondage" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" controller="sondage" action="create"><g:message code="Créer sondage" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" controller="sondage" action="edit" resource="${Sondage.findByNom(params.id)}"><g:message code="Modifier sondage" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>

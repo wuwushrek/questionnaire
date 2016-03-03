@@ -28,7 +28,7 @@
 		<div style="margin:auto;text-align:center;">
 			<g:form action="statSondageEleve">
 				<input class="retourbutton" type="submit" style="width:300px;"
-					value="Voir Sondages|Eleves">
+					value="Voir sondages par élèves">
 			</g:form>
 		</div>
 		
@@ -36,7 +36,7 @@
 		<div style="margin:auto;text-align:center;">
 			<g:form controller="sondage" action="create">
 				<input class="retourbutton" type="submit" style="width:300px;"
-					value="Creer un questionnaire">
+					value="Créer un questionnaire">
 			</g:form>
 		</div>
 		<br>
@@ -44,7 +44,7 @@
 			<g:form controller="eleve" action="create">
 				<!-- A changer -->
 				<input class="retourbutton" type="submit" style="width:300px;"
-					value="Ajouter un eleve">
+					value="Ajouter un élève">
 			</g:form>
 		</div>
 		<br>

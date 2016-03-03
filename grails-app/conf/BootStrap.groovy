@@ -6,7 +6,7 @@ class BootStrap {
 		environments {
 			def development = development {
 
-				def admin = new Direction(nom:'admin', mdp:'sorbetcitron'); // un seul admin
+				def admin = new Direction(nom:'admin', mdp:'admin'); // un seul admin
 				admin.save();
 				if(admin.hasErrors()) {
 					println admin.getErrors();
@@ -15,7 +15,7 @@ class BootStrap {
 				Eleve[] user = new Eleve[6];
 
 				user[0] = new Eleve(nom:'alix', mdp:'alix');
-				user[1] = new Eleve(nom:'leaLeCam', mdp:'lealecam');
+				user[1] = new Eleve(nom:'leaLeCam', mdp:'leaLeCam');
 				user[2] = new Eleve(nom:'antoine', mdp:'antoine');
 				user[3] = new Eleve(nom:'franck', mdp:'franck');
 				user[4] = new Eleve(nom:'roman', mdp:'roman');

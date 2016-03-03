@@ -20,12 +20,12 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status" style="color:#FF0000">${flash.message}</div>
 			</g:if>
-			<table>
+			<table style="border-collapse:separate;">
 			<thead>
 					<tr>
-					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage en cours')}" />
-					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="date" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
-					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
+					<g:sortableColumn style="text-align:center;background:#FF9933;width:35%;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage en cours')}" />
+					<g:sortableColumn style="text-align:center;background:#FF9933;width:35%;" property="date" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
+					<g:sortableColumn style="text-align:center;background:#FF9933;width:15%;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -40,12 +40,12 @@
 				</g:each>
 				</tbody>
 			</table>
-			<table>
+			<table style="border-collapse:separate;">
 				<thead>
 					<tr>
-					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
-					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de début')}" />
-					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="date" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
+					<g:sortableColumn style="text-align:center;background:#FF9933;width:35%;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage à venir')}" />
+					<g:sortableColumn style="text-align:center;background:#FF9933;width:35%;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de début')}" />
+					<g:sortableColumn style="text-align:center;background:#FF9933;width:15%;" property="date" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -59,12 +59,12 @@
 				</g:each>
 				</tbody>
 				</table>
-				<table>
+				<table style="border-collapse:separate;">
 				<thead>
 					<tr>
-					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
-					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
-					<g:sortableColumn style="width:50%;text-align:center;background:#FF9933;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
+					<g:sortableColumn style="text-align:center;background:#FF9933;width:35%;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Sondage terminé')}" />
+					<g:sortableColumn style="text-align:center;background:#FF9933;width:35%;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Date de fin')}" />
+					<g:sortableColumn style="text-align:center;background:#FF9933;width:15%;" property="nom" title="${message(code: 'eleve.nom.label', default: 'Valide?')}" />
 					</tr>
 				</thead>
 				<tbody>
