@@ -19,6 +19,11 @@ class NoteController {
 			redirect (controller:"eleve", action:"index")
 			return
 		}
+		if(sond.debut>new Date()){
+			flash.message="Sondage: ${params.id} est à venir , vous ne pouvez pas le modifier!"
+			redirect (controller:"eleve", action:"index")
+			return
+		}
 		if(Note.findBySondageAndEleve(sond,session.user)!=null){
 			redirect(action:"showNote",params:[id:nomQuestionnaire])
 			return
