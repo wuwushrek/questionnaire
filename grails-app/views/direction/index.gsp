@@ -50,8 +50,8 @@
 				<g:each in="${sondageInstanceList}" status="i" var="sondageInstance">
 				<g:checkAVenir sondage="$sondageInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link ccontroller="sondage" action="edit" resource="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
-						<td><g:link ccontroller="sondage" action="edit" resource="${sondageInstance}">${fieldValue(bean: sondageInstance, field: "moy")}</g:link></td>
+						<td><g:link controller="sondage" action="edit" resource="${sondageInstance}" >${fieldValue(bean: sondageInstance, field: "nom")}</g:link></td>
+						<td><g:link controller="sondage" action="edit" resource="${sondageInstance}" >${fieldValue(bean: sondageInstance, field: "moy")}</g:link></td>
 					</tr>
 				</g:checkAVenir>
 				</g:each>
