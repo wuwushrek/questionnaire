@@ -10,12 +10,6 @@ class SondageController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
-		accesDirection()
-        params.max = Math.min(max ?: 10, 100)
-        respond Sondage.list(params), model:[sondageInstanceCount: Sondage.count()]
-    }
-
     def show(Sondage sondageInstance) {
         respond sondageInstance
     }

@@ -36,15 +36,16 @@ class DirectionController {
 				note6++;
 		}
 		int s=note1+note2+note3+note4+note5+note6;
-		int moy=0
-		int var =0
+		def moy=0
+		def var =0
 		if(s!=0){
 			moy =(note1 + note2*2+note3*3+note4*4+note5*5+note6*6)/s;
 			var = ((1-moy)*(1-moy)*note1+(2-moy)*(2-moy)*note2+(3-moy)*(3-moy)*note3+(4-moy)*(4-moy)*note4+
 			(5-moy)*(5-moy)*note5+(6-moy)*(6-moy)*note6)/s;
 		}
+		var = ((int)(var*100))/100.0
 		return [id:params.id,note1: note1,note2: note2,note3: note3,note4: note4,
-			note5: note5,note6:note6,enregistre:s,moyenne:moy,variance:var]
+			note5: note5,note6:note6,enregistre:s,moyenne:(int) moy,variance:var]
 	}
 	
     def index(Integer max) {
